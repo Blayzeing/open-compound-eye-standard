@@ -1,0 +1,2 @@
+# open-compound-eye-standard
+An open extension of the GlTF standard to define and describe compound eyes in 3D space.
