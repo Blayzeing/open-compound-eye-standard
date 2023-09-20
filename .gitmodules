@@ -1,0 +1,3 @@
+[submodule "tools/eye-editor"]
+	path = tools/eye-editor
+	url = git@github.com:Blayzeing/OCES-eye-editor.git
