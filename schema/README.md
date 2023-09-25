@@ -1,0 +1,1 @@
+This folder contains the OCES standard glTF extension described using [JSON Schema syntax](http://json-schema.org/), in a similar vein to the information given by public [Vendor Extensions for glTF2.0](https://github.com/KhronosGroup/glTF/tree/main/extensions#vendor-extensions-for-gltf-20).
