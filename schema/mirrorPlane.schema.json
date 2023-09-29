@@ -5,6 +5,10 @@
   "type": "object",
   "allOf": [ { "$ref": "glTFChildOfRootProperty.schema.json" } ],
   "properties": {
+    "name": {
+      "description": "The user-defined name of this object.",
+      "type": "string"
+    },
     "position": {
       "description": "The position of the mirror plane in the Head Coordinate Space.",
       "type": "array",
