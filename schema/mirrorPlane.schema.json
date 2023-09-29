@@ -1,5 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "OCES_eyes.mirrorPlane.schema.json",
   "title": "OCES_eyes Mirror Plane definition",
   "description": "A plane that is used to describe a mirror (and duplicate) operation across itself in the related Head Coordinate Space. Eyes can reference (by index in the global `mirrorPlanes` array) a mirror plane to mirror their data across in relation to their associated head.",
   "type": "object",
