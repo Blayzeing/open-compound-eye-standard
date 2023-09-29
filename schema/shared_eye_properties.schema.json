@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "OCES_eyes.shared_eye_properties.schema.json",
+  "title": "OCES_eyes Shared eye properties definition",
+  "description": "This schema defines all properties that all eyes must have.",
+  "type": "object",
+  "allOf": { "$ref": "glTFChildOfRootProperty.schema.json" },
+  "properties": {
+    "name": {
+      "description": "The user-defined name of this set of eye data",
+      "type": "string"
+    },
+    "enabled": {
+      "description": "Whether this eye is enabled or not",
+      "type": "boolean",
+      "default": true
+    },
+    "mirrorPlanes": {
+      "description": "An array of the id(s) of the mirror plane(s) to use to mirror this eye's data across (in the Head Coordinate Space of this eye's closest Head ancestor)",
+      "type": "array",
+      "items": {
+        "allOf": [ { "$ref": "glTFid.schema.json" } ],
+        "description": "The id of a mirror plane to use to mirror this eye's data across (in the Head Coordinate Space of this eye's closest and only Head ancestor)"
+      },
+      "minItems": 1
+    }
+  }
+}

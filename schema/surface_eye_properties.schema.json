@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "OCES_eyes.surface_eye_properties.schema.json",
+  "title": "OCES_eyes Surface mesh eye data properties definition",
+  "description": "This schema defines all properties that are unique to surface mesh-based eye datasets.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "The type of eye. This schema defines the surface mesh (1st) type.",
+      "type": "integer",
+      "const": 1
+    },
+    "ommatidialCount": {
+      "description": "The number of ommatidia in the eye.",
+      "type": "integer",
+      "minimum": 1
+    },
+    "surface": {
+      "description": "Defines the surface mesh of the eye. Similar to glTF's mesh 'attributes' property, but simplified.",
+      "type": "object",
+      "$comment": "The first properties set bewlo defines the 3 required attributes: 'POSITION', 'NORMAL' and 'INDICES'.",
+      "properties": {
+        "POSITION": {
+          "description": "A reference to a glTF accessor that stores the 3D vertex positions of the eye surface, must be the same length as the NORMAL accessor.",
+          "allOf": [ { "$ref": "glTFid.schema.json" } ]
+        },
+        "NORMAL": {
+          "description": "A reference to a glTF accessor that stores the 3D vertex normals of the eye surface, must be the same length as the POSITION accessor.",
+          "allOf": [ { "$ref": "glTFid.schema.json" } ]
+        },
+        "INDICES": {
+          "description": "A reference to a glTF accessor that stores the indices of the 3D eye surface triangles, interpreted as triplets of indices to indicate the vertex/normal pair that make up each corner of the triangles, in counter-clockwise winding order.",
+          "allOf": [ { "$ref": "glTFid.schema.json" } ],
+          "multpleOf": 3
+        }
+      },
+      "required": ["POSITION", "NORMAL", "INDICES"],
+      "$comment": "This 'anyOf'/'not' combination enforces that if either one of 'TEXTURE_COORD' or 'TEXTURE_INDICES' is defined, the other is also defined.",
+      "anyOf":[
+        {
+          "$comment": "This block fails if any of 'TEXTURE_COORD' or 'TEXTURE_INDICES' are defined, meaning that if any are defined, the next block has to succeed for the file to be valid.",
+          "not": {
+            "anyOf": [
+              { "required": ["TEXTURE_COORD"] },
+              { "required": ["TEXTURE_INDICES"] }
+            ]
+          }
+        },
+        {
+          "$comment": "This block only succeeds if both 'TEXTURE_COORD' and 'TEXTURE_INDICES' are defined.",
+          "properties": {
+            "TEXTURE_COORD": {
+              "description": "Reference to a glTF accessor that stores the 2D texture coordinates of the eye surface, must be the same length as the POSITION and NORMAL accessors, i.e. defined for each vertex on the mesh.",
+              "allOf": [ { "$ref": "glTFid.schema.json" } ]
+            },
+            "TEXTURE_INDICES": {
+              "description": "Reference to a glTF accessor that stores the indices of the 2D triangles in texture coordinate space of the eye surface, must be the same length as the INDICES accessor, i.e. each 3D triangle defined in INDICES must have an associated 2D triangle.",
+              "allOf": [ { "$ref": "glTFid.schema.json" } ]
+            }
+          },
+          "required": ["TEXTURE_COORD", "TEXTURE_INDICES"]
+        }
+      ]
+    }
+  },
+  "required": [ "type", "ommatidialCount", "surface" ]
+}
+

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "OCES_eyes.spherical_eye_properties.schema.json",
+  "title": "OCES_eyes Spherical eye data properties definition",
+  "description": "This schema defines all properties that are unique to spherically-defined eye datasets.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "The type of eye. This schema defines the point-ommatidial (2nd) type.",
+      "type": "integer",
+      "const": 2
+    },
+    "ommatidialCount": {
+      "description": "The number of ommatidia in the eye.",
+      "type": "integer",
+      "minimum": 1
+    },
+    "radius": {
+      "description": "The radius of this eye, if it were taken as a literal sphere.",
+      "type": "number",
+      "minimum": 0,
+      "default": 1
+    }
+  },
+  "required": ["type", "ommatidialCount"]
+}

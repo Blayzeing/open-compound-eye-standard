@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "OCES_eyes.eye.schema.json",
+  "title": "OCES_eyes Top-level eye properties definition",
+  "description": "The top-level schema for an eye, defining the structure that all eyes must follow.",
+  "$comment": "This is the top-level schema for an eye - all eyes must have these properties, and specify an eye type that indicates further required properties",
+  "type": "object",
+  "allOf": [
+    {
+      "$ref": "shared_eye_properties.schema.json",
+      "$comment": "Include all the properties that every eye type shares"
+    },
+    {
+      "oneOf": [
+        { "$ref": "point_ommatidial_eye_properties.schema.json" },
+        { "$ref": "surface_eye_properties.schema.json" },
+        { "$ref": "spherical_eye_properties.schema.json" }
+      ],
+      "$comment": "Include the properties that are specific to each eye type, allowing for only one."
+    }
+  ]
+}
