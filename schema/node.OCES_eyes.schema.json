@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "node.OCES_eyes.schema.json",
+  "title": "OCES_eyes glTF Node Extension, allowing the addition of heads and eyes to a glTF model",
+  "$comment": "Extends the glTF node with the ability to (exclusively) link to head or eye objects. Also controls enabled/disabled state.",
+  "type": "object",
+  "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
+  "properties": {
+    "enabled": {
+      "description": "Whether the specified head or eye is enabled or not.",
+      "type": "boolean",
+      "default": true
+    },
+    "oneOf": [
+      "$comment": "Under OCES, nodes can be extended to be either a head, or a reference to eye data.",
+      "head": {
+        "description": "Defines where or not this node is a head (in practice, this will always be 'true' if present).",
+        "type": "boolean"
+      },
+      "eye": {
+        "description": "An indexed reference to an eye to associate to this node.",
+        "allOf": [
+          {
+            "$ref": "glTFid.schema.json"
+          }
+        ]
+      }
+    ],
+    "extensions": {},
+    "extras": {}
+  }
+}
