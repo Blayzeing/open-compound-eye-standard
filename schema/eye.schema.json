@@ -9,14 +9,12 @@
     {
       "$ref": "shared_eye_properties.schema.json",
       "$comment": "Include all the properties that every eye type shares"
-    },
-    {
-      "oneOf": [
-        { "$ref": "point_ommatidial_eye_properties.schema.json" },
-        { "$ref": "surface_eye_properties.schema.json" },
-        { "$ref": "spherical_eye_properties.schema.json" }
-      ],
-      "$comment": "Include the properties that are specific to each eye type, allowing for only one."
     }
+  ],
+  "oneOf": [
+    { "$ref": "point_ommatidial_eye_properties.schema.json" },
+    { "$ref": "surface_eye_properties.schema.json" },
+    { "$ref": "spherical_eye_properties.schema.json" },
+    "$comment": "Include the properties that are specific to each eye type, allowing for only one."
   ]
 }
