@@ -40,7 +40,7 @@
       "type": "object",
       "properties": {
         "type": "object",
-        "additionalProperties": true
+        "additionalProperties": true,
         "$comment": "As cooarse properties are singular instantiations of properties, they can be any value type, so 'additionalProperties' does not need to limit to a specific type."
       }
     }
