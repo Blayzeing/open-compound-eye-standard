@@ -23,6 +23,26 @@
         "description": "The id of a mirror plane to use to mirror this eye's data across (in the Head Coordinate Space of this eye's closest and only Head ancestor)"
       },
       "minItems": 1
+    },
+    "properties": {
+      "descrtiption": "An array of the id(s) of the property set(s) to use to describe this eye's per-ommatidial data (in the Local Ommatidial Coordinate Space, defined relative to this eye's origin. The properties describe this eye's per-ommatidial data (such as position, orientation, facet diameter etc., depending on the type of eye data defined).",
+      "$comment": "More complex schema that actually layout what is required of each eye data type are defined in their individual schema files",
+      "type": "object",
+      "properties": {
+        "type": "object",
+        "additionalProperties": {
+          "allOf": [ { "$ref": "glTFid.schema.json" } ]
+        }
+      }
+    },
+    "coarseProperties": {
+      "description": "An array of the id(s) of the default values of property set(s) used to describne this eye's per-ommatidial data (in the Local Ommatidial Coordinate Space, defined relative to this eye's origin)",
+      "type": "object",
+      "properties": {
+        "type": "object",
+        "additionalProperties": true
+        "$comment": "As cooarse properties are singular instantiations of properties, they can be any value type, so 'additionalProperties' does not need to limit to a specific type."
+      }
     }
   }
 }
