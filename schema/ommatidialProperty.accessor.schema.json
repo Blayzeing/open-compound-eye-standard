@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "OCES_eyes.ommatidialProperty.accessor.schema.json",
+  "description": "An ommatidial property set stored as an accessor, referenced via a glTF id.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "Specifies that the ommatidial property set is stored in an accessor.",
+      "const": "ACCESSOR"
+    },
+    "value": {
+      "description": "The id of the accessor or texture storing the eye properties.",
+      "anyOf": [ { "$ref": "glTFid.schema.json" } ]
+    },
+    "dataStride": {
+      "description": "It may be necessary to use custom data that does not fit the glTF types of SCALAR, VEC2/3/4 or MAT2/3/4, for instance, when a time-series is required or polygons defined by an arbitrarily long list of VEC2s. This allows that data to be specified alongside regular eye properties.",
+      "default": 1
+    }
+  }
+}

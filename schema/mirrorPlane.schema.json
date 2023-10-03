@@ -7,8 +7,9 @@
   "allOf": [ { "$ref": "glTFChildOfRootProperty.schema.json" } ],
   "properties": {
     "name": {
-      "description": "The user-defined name of this object.",
-      "type": "string"
+      "description": "The user-defined name of this object. Used only for user reference.",
+      "type": "string",
+      "default": ""
     },
     "position": {
       "description": "The position of the mirror plane in the Head Coordinate Space.",

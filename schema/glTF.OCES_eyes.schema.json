@@ -48,6 +48,15 @@
       },
       "minItems": 1
     },
+    "ommatidialProperties": {
+      "description": "A list of ommatidial properties (in the local ommatidial coordinate space) that describe the surface property distribution of a specified feature over an eye",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "$ref": "ommatidialProperty.schema.json"
+      },
+      "minItems": 1
+    },
     "eyes": {
       "description": "A list of eyes objects to be attached to nodes via index reference.",
       "type": "array",

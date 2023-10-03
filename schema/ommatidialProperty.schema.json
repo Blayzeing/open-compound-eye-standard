@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "OCES_eyes.ommatidialProperty.schema.json",
+  "title": "OCES_eyes Ommatidial property definition",
+  "description": "Ommatidial properties are the property 'layers' that can be used to describe the distribution of a value over the ommatidia in an eye. This schema defines a list of these layers that can be applied to any type of eye.",
+  "type": "object",
+  "allOf": [ { "$ref": "glTFChildOfRootProperty.schema.json" } ],
+  "oneOf": [
+    "$comment": "Each eye property type has subtle differences in its schema, so each is defined individually here:",
+    { "$ref": "ommatidialProperty.coarse.schema.json" },
+    { "$ref": "ommatidialProperty.accessor.schema.json" },
+    { "$ref": "ommatidialProperty.texture.schema.json" }
+  ],
+  "properties": {
+    "name": {
+      "description": "The user-defined name of this ommatidial property. Used only for user reference.",
+      "type": "string",
+      "default": ""
+    }
+  },
+  "$comment": "Type and value must be specified for every eye property, regardless of which type it is:",
+  "required": ["type", "value"]
+}

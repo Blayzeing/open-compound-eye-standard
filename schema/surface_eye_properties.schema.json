@@ -63,6 +63,6 @@
       ]
     }
   },
-  "required": [ "type", "ommatidialCount", "surface" ]
+  "required": ["ommatidialCount", "surface"]
 }
 

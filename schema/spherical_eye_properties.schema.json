@@ -6,9 +6,8 @@
   "type": "object",
   "properties": {
     "type": {
-      "description": "The type of eye. This schema defines the point-ommatidial (2nd) type.",
-      "type": "integer",
-      "const": 2
+      "description": "The type of eye. This schema defines the spherical type.",
+      "const": "SPHERICAL"
     },
     "ommatidialCount": {
       "description": "The number of ommatidia in the eye.",
@@ -22,5 +21,5 @@
       "default": 1
     }
   },
-  "required": ["type", "ommatidialCount"]
+  "required": ["ommatidialCount"]
 }

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "OCES_eyes.ommatidialProperty.texture.schema.json",
+  "title": "OCES_eyes TEXTURE ommatidial properties definition.",
+  "description": "An ommatidial property set stored as a texture, referenced via a glTF id.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "Specifies whether the eye properties are stored in an accessor or a texture.",
+      "const": "TEXTURE"
+    },
+    "value": {
+      "description": "The id of the accessor or texture storing the eye properties.",
+      "anyOf": [ { "$ref": "glTFid.schema.json" } ]
+    }
+  }
+}

@@ -6,11 +6,9 @@
   "type": "object",
   "properties": {
     "type": {
-      "description": "The type of eye. This schema defines the point-ommatidial (0th) type.",
-      "type": "integer",
-      "const": 0
+      "description": "The type of eye. This schema defines the point-ommatidial type.",
+      "const": "POINT_OMMATIDIAL"
     },
     "$comment": "Point-ommatidial eyes have no unique properties outside of those defined in the base eye schema."
-  },
-  "required": ["type"]
+  }
 }

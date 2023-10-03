@@ -4,11 +4,17 @@
   "title": "OCES_eyes Shared eye properties definition",
   "description": "This schema defines all properties that all eyes must have.",
   "type": "object",
-  "allOf": { "$ref": "glTFChildOfRootProperty.schema.json" },
+  "allOf": [
+    "$comment": "All eyes are defined as the child of a root property:",
+    { "$ref": "glTFChildOfRootProperty.schema.json" },
+    "$comment": "All eyes must define their type:",
+    { "required": ["type"] }
+  ],
   "properties": {
     "name": {
       "description": "The user-defined name of this set of eye data",
-      "type": "string"
+      "type": "string",
+      "default": ""
     },
     "enabled": {
       "description": "Whether this eye is enabled or not",
@@ -24,24 +30,13 @@
       },
       "minItems": 1
     },
-    "properties": {
-      "descrtiption": "An array of the id(s) of the property set(s) to use to describe this eye's per-ommatidial data (in the Local Ommatidial Coordinate Space, defined relative to this eye's origin. The properties describe this eye's per-ommatidial data (such as position, orientation, facet diameter etc., depending on the type of eye data defined).",
-      "$comment": "More complex schema that actually layout what is required of each eye data type are defined in their individual schema files",
+    "ommatidialProperties": {
+      "descrtiption": "An JSON key-value object of the id(s) of the property set(s) to use to describe this eye's per-ommatidial data (in the Local Ommatidial Coordinate Space, defined relative to this eye's origin. The properties describe this eye's per-ommatidial data (such as position, orientation, facet diameter etc., depending on the type of eye data defined).",
+      "$comment": "More complex schema that actually layout which properties of each eye data type are defined in their individual schema files - this schema just specifies that they are of the eyeProperty type",
       "type": "object",
-      "properties": {
-        "type": "object",
-        "additionalProperties": {
-          "allOf": [ { "$ref": "glTFid.schema.json" } ]
-        }
-      }
-    },
-    "coarseProperties": {
-      "description": "An array of the id(s) of the default values of property set(s) used to describne this eye's per-ommatidial data (in the Local Ommatidial Coordinate Space, defined relative to this eye's origin)",
-      "type": "object",
-      "properties": {
-        "type": "object",
-        "additionalProperties": true,
-        "$comment": "As cooarse properties are singular instantiations of properties, they can be any value type, so 'additionalProperties' does not need to limit to a specific type."
+      "additionalProperties": {
+        "$comment": "Every eye has a list of ommatidial properties to define the distribution of per-ommatidial properties.",
+        "allOf": [ { "$ref": "glTFid.schema.json" } ]
       }
     }
   }

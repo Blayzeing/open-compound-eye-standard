@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "OCES_eyes.ommatidialProperty.texture.schema.json",
+  "description": "A directly-specified coarse ommatidial property value.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "Specifies that the eye property is stored directly as a coarse value.",
+      "const": "COARSE"
+    },
+    "value": {
+      "description": "The raw value of the eye property, stored as a single datapoint of the same type that would be stored in the accessor or texture. Typically a 1/2/3/4-D vector in the case of textures where there can be up to 4 channels, and an ND vector in the case of accessor arrays, where the accessor can reference an array of any length, which can then in-turn be interpreted as an array of some multiple of objects",
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "array",
+          "items": { "type": "number" },
+          "minItems": 2
+        }
+      ]
+    }
+  }
+}
