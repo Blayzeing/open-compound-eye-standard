@@ -13,6 +13,7 @@
     },
     "position": {
       "description": "The position of the mirror plane in the Head Coordinate Space.",
+      "description": "A directly-specified 3D normal direction vector.",
       "type": "array",
       "items": { "type": "number" },
       "minItems": 3,
@@ -21,11 +22,28 @@
     },
     "normal": {
       "description": "The normal of the mirror plane in the Head Coordinate Space.",
-      "type": "array",
-      "items": { "type": "number" },
-      "minItems": 3,
-      "maxItems": 3,
-      "default": [ 1, 0, 0 ]
+      "default": [ 1, 0, 0 ],
+      "oneOf": [
+        {
+          "description": "A directly-specified 3D normal direction vector.",
+          "type": "array",
+          "items": { "type": "number" },
+          "minItems": 3,
+          "maxItems": 3
+        },
+        {
+          "description": "An alias for a normal along the HCS X axis.",
+          "enum": ["X", "FRONTAL", "LEFT", "RIGHT"]
+        },
+        {
+          "description": "An alias for a normal along the HCS Y axis.",
+          "enum": ["Y", "TRANSVERSE", "DORSOVENTRAL", "UP", "DOWN"]
+        },
+        {
+          "description": "An alias for a normal along the HCS Z axis.",
+          "enum": ["Z", "SAGITTAL", "ANTERIOR", "POSTERIOR", "ANTEPOSTERIOR", "FORWARD", "BACKWARD", "FRONT", "BACK"]
+        }
+      ]
     }
   }
 }
