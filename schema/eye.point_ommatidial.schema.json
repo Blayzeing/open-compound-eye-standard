@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "OCES_eyes.eye.point_ommatidial.schema.json",
+  "title": "OCES_eyes Point-ommatidial eye data properties definition",
+  "description": "This schema defines all properties that are unique to point-ommatidial eye datasets.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "The type of eye. This schema defines the point-ommatidial type.",
+      "const": "POINT_OMMATIDIAL"
+    },
+    "$comment": "Point-ommatidial eyes have no unique properties outside of those defined in the base eye schema.",
+    "$comment": "We could define explicit properies that need to be defined, such as in this case POSITION, ORIENTATION, OFFSET - but these currently have default values as per the schema. Perhaps we should remove the defaults and make them required?
+    "required": ["POSITION", "ORIENTATION", "FOCAL_OFFSET", "DIAMETER"]
+  }
+}

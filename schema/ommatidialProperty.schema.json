@@ -13,7 +13,7 @@
   ],
   "properties": {
     "name": {
-      "description": "The user-defined name of this ommatidial property. Used only for user reference.",
+      "description": "The user-defined name of this ommatidial property. Used only for user reference to differentiate between ommatidial property sets in the list of all property sets, not to define how the property is applied to any specific eye.",
       "type": "string",
       "default": ""
     }

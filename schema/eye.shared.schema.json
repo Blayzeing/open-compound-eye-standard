@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "OCES_eyes.shared_eye_properties.schema.json",
+  "$id": "OCES_eyes.eye.shared.schema.json",
   "title": "OCES_eyes Shared eye properties definition",
   "description": "This schema defines all properties that all eyes must have.",
   "type": "object",
@@ -31,7 +31,7 @@
       "minItems": 1
     },
     "ommatidialProperties": {
-      "descrtiption": "An JSON key-value object of the id(s) of the property set(s) to use to describe this eye's per-ommatidial data (in the Local Ommatidial Coordinate Space, defined relative to this eye's origin. The properties describe this eye's per-ommatidial data (such as position, orientation, facet diameter etc., depending on the type of eye data defined).",
+      "descrtiption": "An JSON key-value object that acts as a named list of the id(s) of the property set(s) to use to describe this eye's per-ommatidial data (in the Local Ommatidial Coordinate Space, defined relative to this eye's origin. The properties describe this eye's per-ommatidial data (such as position, orientation, facet diameter etc., depending on the type of eye data defined).",
       "$comment": "More complex schema that actually layout which properties of each eye data type are defined in their individual schema files - this schema just specifies that they are of the eyeProperty type",
       "type": "object",
       "additionalProperties": {

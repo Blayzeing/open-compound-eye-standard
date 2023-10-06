@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "OCES_eyes.surface_eye_properties.schema.json",
+  "$id": "OCES_eyes.eye.surface.schema.json",
   "title": "OCES_eyes Surface mesh eye data properties definition",
   "description": "This schema defines all properties that are unique to surface mesh-based eye datasets.",
   "type": "object",

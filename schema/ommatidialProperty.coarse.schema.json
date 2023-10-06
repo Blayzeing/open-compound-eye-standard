@@ -16,7 +16,23 @@
         },
         {
           "type": "array",
-          "items": { "type": "number" },
+          "items": {
+            "anyOf": [
+              {
+                "description": "A single-dimensional array of numbers.",
+                "type": "number"
+              },
+              {
+                "description": "A 2D array of numbers of arbitrary length, but all sub-arrays must be of the same length and between 2 and 16 values long.",
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 2,
+                "maxItems": 16
+              }
+            ]
+          },
           "minItems": 2
         }
       ]
