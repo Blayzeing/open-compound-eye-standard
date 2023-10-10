@@ -12,6 +12,24 @@
     "value": {
       "description": "The id of the accessor or texture storing the eye properties.",
       "anyOf": [ { "$ref": "glTFid.schema.json" } ]
+    },
+    "textureScale": {
+      "description": "A scaling factor to apply to the retrieved texture values. 1-4 dimensional. Recommended 1 dimensional. Must be either 1 dimensional (applied to all dimensions of returned texture values) or match the dimensionality of the texture referenced by this ommatidialProperty (i.e. an RGB image can have a texture scale that is a singular number or a 3D vector of 3 numbers).",
+      "type":{
+        "anyOf": [
+          { "type": "number" },
+          { "type": "array", "items": { "type": "number" }, "minItems": 2, "maxItems": 4 }
+        ]
+      }
+    },
+    "textureCenter": {
+      "description": "An offset value that is subtracted from all retrieved texture values before being scaled by the textureScale value. Must be either 1 dimensional (applied to all dimensions of returned texture values) or match the dimensionality of the texture referenced by this ommatidialProperty (i.e. an RGB image can have a texture scale that is a singular number or a 3D vector of 3 numbers).",
+      "type":{
+        "anyOf": [
+          { "type": "number" },
+          { "type": "array", "items": { "type": "number" }, "minItems": 2, "maxItems": 4 }
+        ]
+      }
     }
   }
 }
