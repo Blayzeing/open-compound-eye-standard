@@ -10,7 +10,7 @@
       "const": "POINT_OMMATIDIAL"
     },
     "ommatidialProperties": {
-      "$comment": "Point-ommatidial eyes require the following ommatidial properties to be defined.",
+      "description": "Point-ommatidial eyes require these ommatidial properties to be defined.",
       "required": ["POSITION", "ORIENTATION", "FOCAL_OFFSET", "DIAMETER"]
     },
     "$comment": "Point-ommatidial eyes have no unique properties outside of those defined in the base eye schema."

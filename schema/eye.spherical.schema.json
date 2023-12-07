@@ -19,6 +19,10 @@
       "type": "number",
       "minimum": 0,
       "default": 1
+    },
+    "ommatidialProperties": {
+      "description": "Spherical eyes require these ommatidial properties to be defined.",
+      "required": ["DIAMETER", "FOCAL_OFFSET"]
     }
   },
   "required": ["ommatidialCount"]

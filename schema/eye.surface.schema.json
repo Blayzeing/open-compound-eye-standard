@@ -6,14 +6,17 @@
   "type": "object",
   "properties": {
     "type": {
-      "description": "The type of eye. This schema defines the surface mesh (1st) type.",
-      "type": "integer",
-      "const": 1
+      "description": "The type of eye. This schema defines the surface mesh type.",
+      "const": "SURFACE"
     },
     "ommatidialCount": {
       "description": "The number of ommatidia in the eye.",
       "type": "integer",
       "minimum": 1
+    },
+    "ommatidialProperties": {
+      "description": "Surface mesh eyes require these ommatidial properties to be defined.",
+      "required": ["DIAMETER", "FOCAL_OFFSET"]
     },
     "surface": {
       "description": "Defines the surface mesh of the eye. Similar to glTF's mesh 'attributes' property, but simplified.",
