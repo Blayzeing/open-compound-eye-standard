@@ -1,0 +1,333 @@
+// This file contains stubbed (i.e. incomplete) OCES data to give an example of how an OCES-enabled glTF file may look.
+// Note that comments (like this one) are not actually supported under JSON, so they must be removed. Similarly,
+// some integer references and extended repetive sections are replaced with letters and ellipses to indicate that they
+// are linked to SOME data, while that data isn't neccessarily defined in-file. In real-world applications,
+// it must be defined somewhere in the file. However, reading (and writing) this by hand for point of reference is
+// excessive so has been ommitted here.
+
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v3.3.27",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "basic-cube",
+            "scale" : [
+                1.9226266145706177,
+                1,
+                1
+            ]
+        },
+        {
+            "name" : "example-head-1",
+            "translation" : [
+                5,
+                5,
+                5
+             ]
+             // Indicate that this is a head object:
+             "extensions" : {
+                "OCES_eyes" : {
+                    "head" : true
+                }
+             },
+             // Has two children, one is an eye, one is
+             // the same eye wrapped in a node:
+             "children" : [2,3]
+        },
+        {
+          "name" : "some-eye",
+          // Attach an eye to this node:
+          "extensions" : {
+            "OCES_eyes" : {
+              // Refer to an eye object from the OCES_eyes eyes list:
+              "eye" : 0,
+              // Attach mirror planes, which 
+              // refer to mirror planes in the OCES_eyes mirror planes list,
+              // which are assumed to be in the coordinate space of the head
+              // this eye is a part of (here "example-head-1")
+              "mirrorPlanes" : [0,2]
+            }
+          }
+        },
+        {
+          // Some arbitrary transform on this node for example purposes
+          "name" : "arbitrary-transform",
+          "rotation" : [ 0.5, 0.2, 1.0, 0.4],
+          "translation" : [0.3, 0.1, 0.0],
+          "scale" : [0.1,0.1,0.1],
+          "children" : [2]
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "basic-cube",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3
+                }
+            ]
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 24,
+            "max" : [
+                1,
+                1,
+                1
+            ],
+            "min" : [
+                -1,
+                -1,
+                -1
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 24,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 24,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 36,
+            "type" : "SCALAR"
+        },
+        // All the eye-specific accessors start here
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : X,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5123,
+            "count" : X,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : X,
+            "type" : "VEC2"
+        },
+        ... // More accessors
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 288,
+            "byteOffset" : 0,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 288,
+            "byteOffset" : 288,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 192,
+            "byteOffset" : 576,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 72,
+            "byteOffset" : 768,
+            "target" : 34963
+        },
+        // All of the eye-specific bufferViews starts here
+        {
+            "buffer" : 1,
+            "byteLength" : X,
+            "byteOffset" : Y,
+            "target" : Z
+        },
+        {
+            "buffer" : 1,
+            "byteLength" : I,
+            "byteOffset" : J,
+            "target" : K
+        },
+        {
+            "buffer" : 1,
+            "byteLength" : A,
+            "byteOffset" : B,
+            "target" : C
+        }
+        ... // More bufferViews
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 840,
+            "uri" : "data:application/octet-stream;base64,AACAvwAAgL8AAIA/AACAvwAAgL8AAIA/AACAvwAAgL8AAIA/AACAvwAAgD8AAIA/AACAvwAAgD8AAIA/AACAvwAAgD8AAIA/AACAvwAAgL8AAIC/AACAvwAAgL8AAIC/AACAvwAAgL8AAIC/AACAvwAAgD8AAIC/AACAvwAAgD8AAIC/AACAvwAAgD8AAIC/AACAPwAAgL8AAIA/AACAPwAAgL8AAIA/AACAPwAAgL8AAIA/AACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AACAPwAAgL8AAIC/AACAPwAAgL8AAIC/AACAPwAAgL8AAIC/AACAPwAAgD8AAIC/AACAPwAAgD8AAIC/AACAPwAAgD8AAIC/AACAvwAAAAAAAACAAAAAAAAAgL8AAACAAAAAAAAAAAAAAIA/AACAvwAAAAAAAACAAAAAAAAAAAAAAIA/AAAAAAAAgD8AAACAAACAvwAAAAAAAACAAAAAAAAAgL8AAACAAAAAAAAAAAAAAIC/AACAvwAAAAAAAACAAAAAAAAAAAAAAIC/AAAAAAAAgD8AAACAAAAAAAAAgL8AAACAAAAAAAAAAAAAAIA/AACAPwAAAAAAAACAAAAAAAAAAAAAAIA/AAAAAAAAgD8AAACAAACAPwAAAAAAAACAAAAAAAAAgL8AAACAAAAAAAAAAAAAAIC/AACAPwAAAAAAAACAAAAAAAAAAAAAAIC/AAAAAAAAgD8AAACAAACAPwAAAAAAAACAAADAPgAAgD8AAAA+AACAPgAAwD4AAAAAAAAgPwAAgD8AACA/AAAAAAAAYD8AAIA+AADAPgAAQD8AAAA+AAAAPwAAwD4AAEA/AAAgPwAAQD8AACA/AABAPwAAYD8AAAA/AADAPgAAgD4AAMA+AACAPgAAwD4AAIA+AAAgPwAAgD4AACA/AACAPgAAID8AAIA+AADAPgAAAD8AAMA+AAAAPwAAwD4AAAA/AAAgPwAAAD8AACA/AAAAPwAAID8AAAA/AAADAAkAAAAJAAYACAAKABUACAAVABMAFAAXABEAFAARAA4ADQAPAAQADQAEAAIABwASAAwABwAMAAEAFgALAAUAFgAFABAA"
+        },
+        // A stand-in buffer to store all of the eye data that we might need
+        // (we don't have any tools written to generate this data yet, so
+        //  it's just arbitrary)
+        {
+            "byteLength": 1236,
+            "uri" : "XXXXXX"
+        }
+    ],
+    // Extensions (of which OCES_eyes is one) must be defined within
+    // the "extensions" object.
+    "extensions": {
+        "OCES_eyes": {
+            // Store information about the program used to create this file and when it was made:
+            "generator" : {"program": "OCES-eye-Editor", "version": "1.0.0"},
+            "creationDatetime" : "2023-08-27 14:32:16.1",
+            // Store verision of the OCES standard is being adhered to:
+            "version" : "0.4.0",
+            // Tell any referers what the maximum rendering distance is
+            "maximumRenderDistance": 500,
+            // If OCES_eyes sub-extensions are used, they'll be listed here:
+            "extensionsUsed" : [],
+
+            // Define all mirror planes used by all eyes:
+            "mirrorPlanes" : [
+                { "position": [0,0,0], "normal": [0.747, 0.747, 0] },
+                { "position": [2,1,0], "normal": [0, 0.747, 0.747] },
+                { "normal": "DORSOVENTRAL" },
+                { "normal": "Z" }
+            ],
+
+            // Define all ommatidial properties used by all eyes:
+            "ommatidialProperties": [
+                // A coarse ommatidial property that simply stores the value '1':
+                {
+                    "type": "COARSE",
+                    "value": 1.0
+                },
+                // A coarse ommatidial property storing a 3D vector:
+                {
+                    "type": "COARSE",
+                    "value": [0.0, 0.0, -1]
+                },
+                // An accessor-type ommatidial property storing 3D vectors via the 5th accessor:
+                {
+                    "type": "ACCESSOR",
+                    "value": 4,
+                    "dataStride": 1
+                },
+                // An accessor-type ommatidial property storing 3D vectors via the Nth accessor:
+                {
+                    "type": "ACCESSOR",
+                    "value": N,
+                    "dataStride": 1
+                },
+                // An accessor-type ommatidial property storing 3D vectors via the Mth accessor:
+                {
+                    "type": "ACCESSOR",
+                    "value": M,
+                    "dataStride": 1
+                },
+                // An accesor-type ommatidial property storing sets of 12 2D vectors via the 6th accesor:
+                {
+                    "type": "ACCESSOR",
+                    "value": 5,
+                    "dataStride": 12
+                },
+                // A texture-type ommatidial property, referencing a 3-channel texture via the 1st texture:
+                {
+                    "type": "TEXTURE",
+                    "value": 0,
+                    "textureScale": 1,
+                    "textureCenter": 0.5
+                }
+            ],
+
+            // Define all eyes used within the file:
+            // (note that only one is referenced by a node above)
+            "eyes" : [
+                {
+                    // A point-ommatidial eye
+                    {
+                        "name": "example point-ommatidial eye",
+                        "type": "POINT_OMMATIDIAL",
+                        "ommatidialProperties": {
+                            // Each ommatidial property references the OCES
+                            // "ommatidialProperties" array defined above:
+                            "POSITION": 2,
+                            "ORIENTATION": 3,
+                            "FOCAL_OFFSET": 4,
+                            "DIAMETER": 0,
+                            "SOME_OTHER_CUSTOM_DATA": X
+                        }
+                    },
+
+                    // A surface-mesh eye
+                    {
+                        "name": "Example Surface-based eye",
+                        "type": "SURFACE",
+                        "surface": {
+                            // Each surface property references a standard glTF accessor:
+                            "POSITION" : 0,
+                            "NORMAL" : 1,
+                            "INDICES" : 2,
+                            "TEXTURE_COORD" : 3,
+                            "TEXTURE_INDICES" : 4
+                        }.
+                        "ommatidialProperties": {
+                            // Each ommatidial property references the OCES
+                            // "ommatidialProperties" array defined above:
+                            "DIAMETER": 0,
+                            "FOCAL_OFFSET": 1,
+                            "DISPLACEMENT": 2
+                        },
+                        // This eye has 3,500 ommatidia:
+                        "ommatidialCount": 3500
+                    },
+                    
+                    // A spherical eye
+                    {
+                        "name": "Example Spherical Eye",
+                        "type": "SPHERICAL",
+                        "ommatidialProperties": {
+                            // Each ommatidial property references the OCES
+                            // "ommatidialProperties" array defined above:
+                            "DIAMETER": 0,
+                            "FOCAL_OFFSET": 1,
+                            "RELATIVE_ORIENTATION": 2
+                            "OMMATIDIAL_BOUNDS": 3
+                        },
+
+                        // This eye has 3,500 ommatidia spread over a sphere of radius 0.25:
+                        "radius": 0.25,
+                        "ommatidialCount": 3500
+                    }
+                }
+            ]
+        }
+    }
+}
